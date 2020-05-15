@@ -86,6 +86,31 @@ class LinkedList:
         else:
             print("Node is not in the list")
 
+        return
+
+    def delete_first_node(self):
+        if self.head is None:
+            print("List is empty")
+            return
+        self.head = self.head.next
+
+    def delete_last_node(self):
+        if self.head is None:
+            print("List is empty")
+            return
+        cnode = self.head
+        while cnode.next.next is not None:
+            cnode = cnode.next
+        cnode.next = None
+        return
+
+    def del_this(self, this_node):
+        cnode = self.head
+        if cnode.data == this_node:
+            self.head = None
+            return
+        
+        while cnode.next
 
 llist = LinkedList()
 llist.insert_at_end("p")
@@ -102,4 +127,8 @@ llist.insert_before("Start", "X")
 llist.traverse()
 
 llist.insert_before("s", "S")
+llist.traverse()
+llist.delete_first_node()
+llist.traverse()
+llist.delete_last_node()
 llist.traverse()
