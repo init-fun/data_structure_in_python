@@ -109,8 +109,7 @@ class LinkedList:
         if cnode.data == this_node:
             self.head = None
             return
-        
-        while cnode.next
+
 
 llist = LinkedList()
 llist.insert_at_end("p")
