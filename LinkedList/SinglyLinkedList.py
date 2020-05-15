@@ -104,11 +104,12 @@ class LinkedList:
         cnode.next = None
         return
 
-    def del_this(self, this_node):
+    def del_this_node(self, this_node):
         cnode = self.head
         if cnode.data == this_node:
             self.head = None
             return
+        cnode = self.head
 
 
 llist = LinkedList()
