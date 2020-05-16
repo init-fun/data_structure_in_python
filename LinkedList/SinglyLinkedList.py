@@ -85,7 +85,6 @@ class LinkedList:
             cnode = cnode.next
         else:
             print("Node is not in the list")
-
         return
 
     def delete_first_node(self):
@@ -104,31 +103,99 @@ class LinkedList:
         cnode.next = None
         return
 
-    def del_this_node(self, this_node):
-        cnode = self.head
-        if cnode.data == this_node:
-            self.head = None
+    # def del_this_node(self, this_node):
+    #     if self.head is None:
+    #         print("List is empty")
+    #         return
+    #     # if the TBD node is the first node
+    #     if self.head.data == this_node and self.head.next is None:
+    #         self.head = None
+    #         return
+    #     # if the TBD node is not the first node
+    #     cnode = self.head
+    #     if cnode.next is not None and cnode.data == this_node:
+    #         cnode = cnode.next
+    #         self.head = cnode
+    #         return
+
+    #     while cnode.next.next is not None:
+
+    #         cnode = cnode.next
+
+    def reverse_it(self):
+        if self.head is None:
+            print("list is empty")
             return
         cnode = self.head
+        prev_node = None
+        while cnode is not None:
+            next_node = cnode.next
+            cnode.next = prev_node
+            prev_node = cnode
+            cnode = next_node
+
+        self.head = prev_node
+        return
+
+    def search_it(self, find_me):
+        if self.head is None:
+            print("List is empty")
+            return
+        cnode = self.head
+        pos = 1
+        while cnode is not None:
+            if cnode.data == find_me:
+                print(f"{find_me} found at {pos}")
+                return
+            pos += 1
+            cnode = cnode.next
+        else:
+            print(f"{find_me} not found in the list")
+
+    # sorting! :|
+    def bubble_sortBy_data(self):
+        if self.head is None:
+            print("List is empty")
+            return
+        cnode = self.head
+        while cnode.next is not None:
+            next_node = cnode.next
+            if cnode.data > next_node.data:
+                temp_data = cnode.data
+                cnode.data = next_node.data
+                next_node.data = temp_data
+            cnode = cnode.next
 
 
 llist = LinkedList()
-llist.insert_at_end("p")
-llist.insert_at_end("r")
-llist.insert_at_end("s")
-llist.traverse()
-llist.insert_at_begining("Start")
+llist.insert_at_end(10)
+llist.insert_at_end(5)
+llist.insert_at_end(3)
+# llist.traverse()
+llist.insert_at_begining(19)
+# llist.traverse()
+
+llist.insert_after(3, 21)
+# llist.traverse()
+
+llist.insert_before(21, 7)
+# llist.traverse()
+
+llist.insert_before(21, 9)
+print("List is :> ", end=" ")
 llist.traverse()
 
-llist.insert_after("p", "q")
-llist.traverse()
-
-llist.insert_before("Start", "X")
-llist.traverse()
-
-llist.insert_before("s", "S")
-llist.traverse()
 llist.delete_first_node()
-llist.traverse()
+# llist.traverse()
 llist.delete_last_node()
 llist.traverse()
+
+llist.reverse_it()
+llist.traverse()
+
+llist.search_it(5)
+llist.traverse()
+
+# print("sorting\n")
+# llist.bubble_sortBy_data()
+# llist.traverse()
