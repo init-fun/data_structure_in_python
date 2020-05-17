@@ -153,18 +153,22 @@ class LinkedList:
             print(f"{find_me} not found in the list")
 
     # sorting! :|
-    def bubble_sortBy_data(self):
+
+    def bubble_sortByData(self):
         if self.head is None:
             print("List is empty")
             return
-        cnode = self.head
-        while cnode.next is not None:
-            next_node = cnode.next
-            if cnode.data > next_node.data:
-                temp_data = cnode.data
-                cnode.data = next_node.data
-                next_node.data = temp_data
-            cnode = cnode.next
+
+        end_node = None
+        while end_node != self.head.next:
+            cnode = self.head
+            while cnode.next != end_node:
+                next_node = cnode.next
+                if cnode.data > next_node.data:
+                    cnode.data, next_node.data = next_node.data, cnode.data
+                cnode = cnode.next
+
+            end_node = cnode
 
 
 llist = LinkedList()
