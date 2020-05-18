@@ -188,6 +188,12 @@ class LinkedList:
                     cnode.link = prev_node.links
                     next_node.link = cnode
 
+                    if cnode != self.start:
+                        prev_node.link = cnode
+
+                    else:
+                        self.start = next_node
+
                 cnode = cnode.next
             end_node = cnode
 
