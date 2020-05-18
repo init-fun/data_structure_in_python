@@ -185,15 +185,18 @@ class LinkedList:
 
                 if cnode.data > next_node.data:
                     # exchange the links
-                    cnode.link = prev_node.links
-                    next_node.link = cnode
+                    cnode.next = next_node.next
+                    next_node.next = cnode
 
-                    if cnode != self.start:
-                        prev_node.link = cnode
+                    if cnode != self.head:
+                        prev_node.next = next_node
 
                     else:
-                        self.start = next_node
+                        self.head = next_node
 
+                    cnode, next_node = next_node, cnode
+
+                prev_node = cnode
                 cnode = cnode.next
             end_node = cnode
 
@@ -227,6 +230,12 @@ llist.traverse()
 llist.search_it(5)
 llist.traverse()
 
-print("sorting\n")
-llist.bubble_sortByData()
+# print("sorting\n")
+# llist.bubble_sortByData()
+# llist.traverse()
+
+print("Current state of the list is > ", end="")
+llist.traverse()
+llist.bubble_sortByLinks()
+print("Current state of the list is > ", end="")
 llist.traverse()
