@@ -170,7 +170,35 @@ class LinkedList:
 
             end_node = cnode
 
-    # in-between
+    # def bubble_sortByLinks(self):
+    #     if self.head is None:
+    #         print("List is empty")
+    #         return
+
+    #     end_node = None
+    #     while end_node != self.head.next:
+    #         cnode = self.head
+    #         prev_node = self.head
+    #         while cnode.next != end_node:
+    #             next_node = cnode.next
+
+    #             if cnode.data > next_node.data:
+    #                 # exchange the links
+    #                 cnode.next = next_node.next
+    #                 next_node.next = cnode
+
+    #                 if cnode != self.head:
+    #                     prev_node.next = next_node
+
+    #                 else:
+    #                     self.head = next_node
+
+    #                 cnode, next_node = next_node, cnode
+
+    #             prev_node = cnode
+    #             cnode = cnode.next
+    #         end_node = cnode
+
     def bubble_sortByLinks(self):
         if self.head is None:
             print("List is empty")
@@ -178,26 +206,26 @@ class LinkedList:
 
         end_node = None
         while end_node != self.head.next:
+
             cnode = self.head
             prev_node = self.head
             while cnode.next != end_node:
                 next_node = cnode.next
-
                 if cnode.data > next_node.data:
-                    # exchange the links
+                    # swaps links here
+
                     cnode.next = next_node.next
                     next_node.next = cnode
 
                     if cnode != self.head:
                         prev_node.next = next_node
-
                     else:
                         self.head = next_node
-
                     cnode, next_node = next_node, cnode
 
                 prev_node = cnode
                 cnode = cnode.next
+
             end_node = cnode
 
 
